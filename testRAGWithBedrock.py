@@ -1,14 +1,22 @@
 import boto3
 import os
 import streamlit as st
-import time
 
+# -----------------------------------------------------------------------------------------------------------------------
 # Reference: https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html
+# -----------------------------------------------------------------------------------------------------------------------
 
-client = boto3.client(service_name='bedrock-agent-runtime', region_name="us-east-1")
+# Set up berock clients
+client_bedrock_agent = boto3.client(service_name='bedrock-agent-runtime', region_name="us-east-1")
+# Pass knowledge base id created via AWS Bedrock service from console
+kbId = 'CITVTUBCRO'
 
-def retrieveAndGenerate(input, kbId):
-    return client.retrieve_and_generate(
+
+# supported models for KB : https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html 
+modelArn = 'arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-premier-v1:0'
+
+def retrieveAndGenerate(input):
+    return client_bedrock_agent.retrieve_and_generate(
         input={
             'text': input
         },
@@ -16,12 +24,11 @@ def retrieveAndGenerate(input, kbId):
             'type': 'KNOWLEDGE_BASE',
             'knowledgeBaseConfiguration': {
                 'knowledgeBaseId': kbId,
-                # supported models for KB : https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html 
-                'modelArn': 'arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-premier-v1:0',
+                'modelArn': modelArn,
                 'generationConfiguration': {
                     'inferenceConfig': {
                         'textInferenceConfig' : {
-                            'maxTokens': 100 ,
+                            'maxTokens': 2000 ,
                             'temperature': 0.9 
                             }
                         }
@@ -67,8 +74,9 @@ if user_prompt := st.chat_input("What's up? Ask something..."):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": user_prompt})
 
-    with st.spinner('Assistant Typing.........'):
-        response = retrieveAndGenerate(user_prompt, "CITVTUBCRO")["output"]["text"]
+    # Get response from RAG function from user prompt(question)
+    with st.spinner('Assistant Typing......'):
+        response = retrieveAndGenerate(user_prompt)["output"]["text"]
         print(response)
 
     # Display assistant response in chat message container
