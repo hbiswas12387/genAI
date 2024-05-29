@@ -28,7 +28,7 @@ def retrieveAndGenerate(input):
                 'generationConfiguration': {
                     'inferenceConfig': {
                         'textInferenceConfig' : {
-                            'maxTokens': 2000 ,
+                            'maxTokens': 20 ,
                             'temperature': 0.9 
                             }
                         }
