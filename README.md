@@ -3,6 +3,7 @@ This is a simple GenAI project which has different Python classes which are usin
 
 Disclaimer : These are created just for my learning purpose. 
 
+
 ## Project overview:
 
 ## 1. learning/awsBedrock/apiGateway/ruhaanshChatBot.py 
@@ -40,15 +41,18 @@ This chatbot was created with purpose to test RAG ( Retrieve. Augment. Generate)
 ##### 4. Python's Streamlit - For UI Chatbot
 
 
-
 ## Pre-requisite  
 
 #### 1. Need to have an AWS account 
 #### 2. AWS CLI setup 
 
+
+
 ## Install packages :
 
 `pip3 install -r requirements.txt `
+
+
 
 ## Run & Test :
 We can run all those files using streamlit as shown below
@@ -60,8 +64,8 @@ We can run all those files using streamlit as shown below
 `python3 -m streamlit run learning/awsBedrock/rag/testAwsRAGChatbot.py`
 
 
-## Sample ChatBot
+## ChatBot Example
 
-Below is the screen recording of chat box created via ruhaanshChatBot.py
+Below is the screen recording of chat bot created via ruhaanshChatBot.py
 
 ![example](./learning/media/chatBot.GIF)
