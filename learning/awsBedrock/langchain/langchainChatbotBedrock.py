@@ -5,7 +5,7 @@ import boto3
 import os
 import streamlit as st
 
-os.environ["AWS_PROFILE"] = "<iam_profile_name>"
+#os.environ["AWS_PROFILE"] = "<iam_profile_name>"
 
 #bedrock client
 
