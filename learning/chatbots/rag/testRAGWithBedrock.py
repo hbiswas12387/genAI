@@ -9,7 +9,7 @@ import streamlit as st
 # Set up berock clients
 client_bedrock_agent = boto3.client(service_name='bedrock-agent-runtime', region_name="us-east-1")
 # Pass knowledge base id created via AWS Bedrock service from console
-kbId = 'CITVTUBCRO'
+kbId = 'CITVTUBCRO' # Note : I have deleted this KBID
 
 
 # supported models for KB : https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html 
