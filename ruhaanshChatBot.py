@@ -2,6 +2,8 @@ import streamlit as st
 import requests
 import json
 
+# Purpose: A simple chatbot created using AWS Bedrock , Lambda, API gateway and Streamlit 
+
 # The API endpoint created via AWS API Gateway which calls the lambda function internally...
 url = 'https://gjxoxk6j10.execute-api.us-east-1.amazonaws.com/dev/genAiTestBedrock'
 
@@ -28,17 +30,19 @@ def setChatDirections():
             unsafe_allow_html=True,
         )
 
+# Method 3 : Clear all conversation when called
+def clear_conversation():
+  st.session_state.messages = []
+
 
 # Page titles and configs... 
 st.set_page_config(page_title="Q&A Chatbot Ruhaansh")
-st.title("I am ChatBot Ruhaansh ! :ghost: ")
-st.markdown(":copyright: A Simple Q&A Chatbot created by me using AWS Bedrock (Cohere FM) + Lambda + API Gateway + Steamlit")
+st.title("I am Ruhaansh, A Chat-Bot ! :ghost: ")
+st.markdown("I was created by my dad using AWS Bedrock(Cohere FM),Lambda,API Gateway & Streamlit")
 # Side bar checks... 
 st.sidebar.markdown("![GIF Image](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnBmN2didjdsdmZnMWd3M293aHlmNWlnMWdvMXpjdjA5MjNsNWZqaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/H9M7lvORlmeFmvGoqY/giphy.gif)")
 st.sidebar.title("About me  :monkey_face:  ")
-st.sidebar.markdown("I am from India :flag-in: , Enjoying life in :flag-scotland:")
-st.sidebar.markdown("I am :seven: years young :panda_face: ")
-st.sidebar.markdown("I play guitar :guitar: , I swim.. :swimmer: , and.... I know everything :imp:  ")
+st.sidebar.markdown(" \"I can keep talking the whole day!\" :flag-in: :flag-scotland: :seven: :guitar: :swimmer: :imp:  ")
 
 
 # Initialize chat history
@@ -75,3 +79,6 @@ if user_prompt := st.chat_input("What's up? Ask something..."):
 
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
+
+    # Delete chat button should be visible
+    st.sidebar.button(':red[Click here to delete our conversations] :man-gesturing-no: ', on_click=clear_conversation)
