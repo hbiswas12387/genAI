@@ -37,8 +37,8 @@ def clear_conversation():
   st.session_state.messages = []
 
 # Method 4 : Get base64 encoded content of any file
-def getEncodedContent(filePath):
-    file_ = open(os.getcwd()+filePath, "rb")
+def getEncodedContent(fileName):
+    file_ = open(os.getcwd()+fileName, "rb")
     contents = file_.read()
     file_.close()
     return base64.b64encode(contents).decode("utf-8")
@@ -50,7 +50,7 @@ st.markdown("I was created by my dad using AWS Bedrock(Cohere FM),Lambda,API Gat
 
 # Side bar controls... 
 st.sidebar.markdown(
-    f'<img src="data:image/gif;base64,{getEncodedContent("/learning/media/homePageBot.gif")}" alt="chatbot gif">',
+    f'<img src="data:image/gif;base64,{getEncodedContent("/homePageBot.gif")}" alt="chatbot gif">',
     unsafe_allow_html=True,
 )
 st.sidebar.title("About me  :monkey_face:  ")
