@@ -32,7 +32,7 @@ Key components & AWS services used:
 ## 3. learning/awsBedrock/rag/testAwsRAGChatbot.py 
 
 This chatbot was created with purpose to test RAG ( Retrieve. Augment. Generate) feature with FM of bedrock. Key components & AWS services used:
-##### 1. AWS Bedrock ( Titan FM) - The LLM foundation model named Claude provided by Amazon for embedding 
+##### 1. AWS Bedrock ( Titan FM) - The LLM foundation model named Titan provided by Amazon for embedding 
 
 ##### 2. AWS Knowledge base ( To interact with AWS Bedrock and provide RAG approach for contextual responses from users prompts). AWS KB automatically creates embeddings with supported FM ( e.g. Amazon's Titan)/ vector stores and open search serverless Datasources. If not used, we have to use langchain for manual data ingestion and vector handling. 
 
