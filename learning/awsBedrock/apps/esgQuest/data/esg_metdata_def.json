@@ -1,0 +1,24 @@
+Here is a sample of key data points in JSON format:
+
+```json
+{
+    "companyName": "DEF",
+    "esgData": {
+        "ghgEmissions": 12345,
+        "energyUsage": {
+            "electricity": 10000,
+            "naturalGas": 5000
+        },
+        "waterUsage": 50000,
+        "wasteGenerated": 2000,
+        "recyclingRate": 0.6, 
+        "workforceDemographics": {
+            "femaleEmployees": 40, 
+            "minorityEmployees": 30 
+        },
+        "safetyIncidents": 10,
+        "communitySpending": 50000,
+        "sustainabilityPolicy": true
+    }
+}
+```
