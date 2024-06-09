@@ -1,0 +1,23 @@
+{
+    "companyName": "DEF",
+    "esgData": {
+        "ghgEmissions": 12345,
+        "carbonFootPrint": 111111,
+        "energyUsage": {
+            "electricity": 10000,
+            "naturalGas": 5000
+        },
+        "waterUsage": 777777,
+        "wasteGenerated": 2000,
+        "recyclingRate": 0.6, 
+        "workforceDemographics": {
+            "femaleEmployees": 40, 
+            "minorityEmployees": 30 
+        },
+        "safetyIncidents": 10,
+        "communitySpending": 50000,
+        "sustainabilityPolicy": true,
+        "twitterTweets": 22222,
+        "counterparties": 33333
+    }
+}
